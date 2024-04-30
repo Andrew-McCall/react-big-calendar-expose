@@ -1,6 +1,6 @@
 import EventWrapper from './EventWrapper'
 import BackgroundWrapper from './BackgroundWrapper'
-import viewUtilities from './viewUtilities'
+
 import TimeGrid from './TimeGrid'
 import TimeGridEvent from './TimeGridEvent'
 import TimeGridHeader from './TimeGridHeader'
