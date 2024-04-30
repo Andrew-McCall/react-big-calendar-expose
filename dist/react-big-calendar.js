@@ -3117,6 +3117,7 @@
       })()
     }
   })(react_development)
+
   ;(function (module) {
     {
       module.exports = react_development
@@ -10278,7 +10279,7 @@
     )
   })
 
-  var _excluded$8 = ['dayProp'],
+  var _excluded$7 = ['dayProp'],
     _excluded2$1 = ['eventContainerWrapper']
   var DayColumn = /*#__PURE__*/ (function (_React$Component) {
     _inherits(DayColumn, _React$Component)
@@ -10687,7 +10688,7 @@
             dayProp = _this$props5$getters.dayProp,
             getters = _objectWithoutProperties(
               _this$props5$getters,
-              _excluded$8
+              _excluded$7
             ),
             _this$props5$componen = _this$props5.components,
             EventContainer = _this$props5$componen.eventContainerWrapper,
@@ -11274,7 +11275,7 @@
     return BackgroundCells
   })(React.Component)
 
-  var _excluded$7 = [
+  var _excluded$6 = [
     'style',
     'className',
     'event',
@@ -11323,7 +11324,7 @@
             EventWrapper = _this$props$component.eventWrapper,
             slotStart = _this$props.slotStart,
             slotEnd = _this$props.slotEnd,
-            props = _objectWithoutProperties(_this$props, _excluded$7)
+            props = _objectWithoutProperties(_this$props, _excluded$6)
           delete props.resizable
           var title = accessors.title(event)
           var tooltip = accessors.tooltip(event)
@@ -15607,12 +15608,14 @@
     var popperInstanceRef = reactExports.useRef()
     var update = reactExports.useCallback(function () {
       var _popperInstanceRef$cu
+
       ;(_popperInstanceRef$cu = popperInstanceRef.current) == null
         ? void 0
         : _popperInstanceRef$cu.update()
     }, [])
     var forceUpdate = reactExports.useCallback(function () {
       var _popperInstanceRef$cu2
+
       ;(_popperInstanceRef$cu2 = popperInstanceRef.current) == null
         ? void 0
         : _popperInstanceRef$cu2.forceUpdate()
@@ -16444,6 +16447,7 @@
       })()
     }
   })(scheduler_development)
+
   ;(function (module) {
     {
       module.exports = scheduler_development
@@ -16812,6 +16816,7 @@
       })()
     }
   })(schedulerTracing_development)
+
   ;(function (module) {
     {
       module.exports = schedulerTracing_development
@@ -17209,6 +17214,7 @@
         )
       }) // A few React string attributes have a different name.
       // This is a mapping from React prop names to the attribute names.
+
       ;[
         ['acceptCharset', 'accept-charset'],
         ['className', 'class'],
@@ -17229,6 +17235,7 @@
       }) // These are "enumerated" HTML attributes that accept "true" and "false".
       // In React, we let users pass `true` and `false` even though technically
       // these aren't boolean attributes (they are coerced to strings).
+
       ;['contentEditable', 'draggable', 'spellCheck', 'value'].forEach(
         function (name) {
           properties[name] = new PropertyInfoRecord(
@@ -17245,6 +17252,7 @@
       // In React, we let users pass `true` and `false` even though technically
       // these aren't boolean attributes (they are coerced to strings).
       // Since these are SVG attributes, their attribute names are case-sensitive.
+
       ;[
         'autoReverse',
         'externalResourcesRequired',
@@ -17261,6 +17269,7 @@
           false
         )
       }) // These are HTML boolean attributes.
+
       ;[
         'allowFullScreen',
         'async', // Note: there is a special case that prevents it from being written to the DOM
@@ -17298,6 +17307,7 @@
         )
       }) // These are the few React props that we set as DOM properties
       // rather than attributes. These are all booleans.
+
       ;[
         'checked', // Note: `option.selected` is not updated if `select.multiple` is
         // disabled with `removeAttribute`. We have special logic for handling this.
@@ -17318,6 +17328,7 @@
         )
       }) // These are HTML attributes that are "overloaded booleans": they behave like
       // booleans, but can also accept a string value.
+
       ;[
         'capture',
         'download', // NOTE: if you add a camelCased prop to this list,
@@ -17334,6 +17345,7 @@
           false
         )
       }) // These are HTML attributes that must be positive numbers.
+
       ;[
         'cols',
         'rows',
@@ -17352,6 +17364,7 @@
           false
         )
       }) // These are HTML attributes that must be numbers.
+
       ;['rowSpan', 'start'].forEach(function (name) {
         properties[name] = new PropertyInfoRecord(
           name,
@@ -17461,6 +17474,7 @@
           false
         )
       }) // String SVG attributes with the xlink namespace.
+
       ;[
         'xlink:actuate',
         'xlink:arcrole',
@@ -17482,6 +17496,7 @@
           false
         )
       }) // String SVG attributes with the xml namespace.
+
       ;[
         'xml:base',
         'xml:lang',
@@ -17502,6 +17517,7 @@
       }) // These attribute exists both in HTML and SVG.
       // The attribute name is case-sensitive in SVG so we can't just use
       // the React name like we do for attributes that exist only in HTML.
+
       ;['tabIndex', 'crossOrigin'].forEach(function (attributeName) {
         properties[attributeName] = new PropertyInfoRecord(
           attributeName,
@@ -50390,7 +50406,7 @@
     )
   }
 
-  var _excluded$6 = ['date', 'className']
+  var _excluded$5 = ['date', 'className']
   var eventsForWeek = function eventsForWeek(
     evts,
     start,
@@ -50476,7 +50492,7 @@
       _this.readerDateHeading = function (_ref) {
         var date = _ref.date,
           className = _ref.className,
-          props = _objectWithoutProperties(_ref, _excluded$6)
+          props = _objectWithoutProperties(_ref, _excluded$5)
         var _this$props2 = _this.props,
           currentDate = _this$props2.date,
           getDrilldownView = _this$props2.getDrilldownView,
@@ -50840,91 +50856,6 @@
   MonthView.title = function (date, _ref5) {
     var localizer = _ref5.localizer
     return localizer.format(date, 'monthHeaderFormat')
-  }
-
-  var _excluded$5 = [
-    'date',
-    'localizer',
-    'min',
-    'max',
-    'scrollToTime',
-    'enableAutoScroll',
-  ]
-  var Day = /*#__PURE__*/ (function (_React$Component) {
-    _inherits(Day, _React$Component)
-    function Day() {
-      _classCallCheck(this, Day)
-      return _callSuper(this, Day, arguments)
-    }
-    _createClass(Day, [
-      {
-        key: 'render',
-        value: function render() {
-          /**
-           * This allows us to default min, max, and scrollToTime
-           * using our localizer. This is necessary until such time
-           * as TODO: TimeGrid is converted to a functional component.
-           */
-          var _this$props = this.props,
-            date = _this$props.date,
-            localizer = _this$props.localizer,
-            _this$props$min = _this$props.min,
-            min =
-              _this$props$min === void 0
-                ? localizer.startOf(new Date(), 'day')
-                : _this$props$min,
-            _this$props$max = _this$props.max,
-            max =
-              _this$props$max === void 0
-                ? localizer.endOf(new Date(), 'day')
-                : _this$props$max,
-            _this$props$scrollToT = _this$props.scrollToTime,
-            scrollToTime =
-              _this$props$scrollToT === void 0
-                ? localizer.startOf(new Date(), 'day')
-                : _this$props$scrollToT,
-            _this$props$enableAut = _this$props.enableAutoScroll,
-            enableAutoScroll =
-              _this$props$enableAut === void 0 ? true : _this$props$enableAut,
-            props = _objectWithoutProperties(_this$props, _excluded$5)
-          var range = Day.range(date, {
-            localizer: localizer,
-          })
-          return /*#__PURE__*/ React.createElement(
-            TimeGrid,
-            Object.assign({}, props, {
-              range: range,
-              eventOffset: 10,
-              localizer: localizer,
-              min: min,
-              max: max,
-              scrollToTime: scrollToTime,
-              enableAutoScroll: enableAutoScroll,
-            })
-          )
-        },
-      },
-    ])
-    return Day
-  })(React.Component)
-  Day.range = function (date, _ref) {
-    var localizer = _ref.localizer
-    return [localizer.startOf(date, 'day')]
-  }
-  Day.navigate = function (date, action, _ref2) {
-    var localizer = _ref2.localizer
-    switch (action) {
-      case navigate.PREVIOUS:
-        return localizer.add(date, -1, 'day')
-      case navigate.NEXT:
-        return localizer.add(date, 1, 'day')
-      default:
-        return date
-    }
-  }
-  Day.title = function (date, _ref3) {
-    var localizer = _ref3.localizer
-    return localizer.format(date, 'dayHeaderFormat')
   }
 
   function _toArray(arr) {
@@ -51540,7 +51471,7 @@
           WorkWeek
         ),
         views.DAY,
-        Day
+        DayResource
       ),
       views.AGENDA,
       Agenda
