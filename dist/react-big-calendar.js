@@ -10194,6 +10194,7 @@
     WORK_WEEK: 'work_week',
     DAY: 'day',
     AGENDA: 'agenda',
+    RESOURCE: 'resource',
   }
 
   var viewNames$1 = Object.keys(views).map(function (k) {
@@ -10277,7 +10278,7 @@
     )
   })
 
-  var _excluded$7 = ['dayProp'],
+  var _excluded$8 = ['dayProp'],
     _excluded2$1 = ['eventContainerWrapper']
   var DayColumn = /*#__PURE__*/ (function (_React$Component) {
     _inherits(DayColumn, _React$Component)
@@ -10686,7 +10687,7 @@
             dayProp = _this$props5$getters.dayProp,
             getters = _objectWithoutProperties(
               _this$props5$getters,
-              _excluded$7
+              _excluded$8
             ),
             _this$props5$componen = _this$props5.components,
             EventContainer = _this$props5$componen.eventContainerWrapper,
@@ -11273,7 +11274,7 @@
     return BackgroundCells
   })(React.Component)
 
-  var _excluded$6 = [
+  var _excluded$7 = [
     'style',
     'className',
     'event',
@@ -11322,7 +11323,7 @@
             EventWrapper = _this$props$component.eventWrapper,
             slotStart = _this$props.slotStart,
             slotEnd = _this$props.slotEnd,
-            props = _objectWithoutProperties(_this$props, _excluded$6)
+            props = _objectWithoutProperties(_this$props, _excluded$7)
           delete props.resizable
           var title = accessors.title(event)
           var tooltip = accessors.tooltip(event)
@@ -50389,7 +50390,7 @@
     )
   }
 
-  var _excluded$5 = ['date', 'className']
+  var _excluded$6 = ['date', 'className']
   var eventsForWeek = function eventsForWeek(
     evts,
     start,
@@ -50475,7 +50476,7 @@
       _this.readerDateHeading = function (_ref) {
         var date = _ref.date,
           className = _ref.className,
-          props = _objectWithoutProperties(_ref, _excluded$5)
+          props = _objectWithoutProperties(_ref, _excluded$6)
         var _this$props2 = _this.props,
           currentDate = _this$props2.date,
           getDrilldownView = _this$props2.getDrilldownView,
@@ -50841,7 +50842,7 @@
     return localizer.format(date, 'monthHeaderFormat')
   }
 
-  var _excluded$4 = [
+  var _excluded$5 = [
     'date',
     'localizer',
     'min',
@@ -50885,7 +50886,7 @@
             _this$props$enableAut = _this$props.enableAutoScroll,
             enableAutoScroll =
               _this$props$enableAut === void 0 ? true : _this$props$enableAut,
-            props = _objectWithoutProperties(_this$props, _excluded$4)
+            props = _objectWithoutProperties(_this$props, _excluded$5)
           var range = Day.range(date, {
             localizer: localizer,
           })
@@ -50935,7 +50936,7 @@
     )
   }
 
-  var _excluded$3 = [
+  var _excluded$4 = [
     'date',
     'localizer',
     'min',
@@ -50979,7 +50980,7 @@
             _this$props$enableAut = _this$props.enableAutoScroll,
             enableAutoScroll =
               _this$props$enableAut === void 0 ? true : _this$props$enableAut,
-            props = _objectWithoutProperties(_this$props, _excluded$3)
+            props = _objectWithoutProperties(_this$props, _excluded$4)
           var range = Week.range(date, this.props)
           return /*#__PURE__*/ React.createElement(
             TimeGrid,
@@ -51034,7 +51035,7 @@
     )
   }
 
-  var _excluded$2 = [
+  var _excluded$3 = [
     'date',
     'localizer',
     'min',
@@ -51083,7 +51084,7 @@
             _this$props$enableAut = _this$props.enableAutoScroll,
             enableAutoScroll =
               _this$props$enableAut === void 0 ? true : _this$props$enableAut,
-            props = _objectWithoutProperties(_this$props, _excluded$2)
+            props = _objectWithoutProperties(_this$props, _excluded$3)
           var range = workWeekRange(date, this.props)
           return /*#__PURE__*/ React.createElement(
             TimeGrid,
@@ -51413,22 +51414,139 @@
     )
   }
 
+  var _excluded$2 = [
+    'date',
+    'localizer',
+    'min',
+    'max',
+    'scrollToTime',
+    'enableAutoScroll',
+  ]
+  var DayResource = /*#__PURE__*/ (function (_React$Component) {
+    _inherits(DayResource, _React$Component)
+    function DayResource() {
+      _classCallCheck(this, DayResource)
+      return _callSuper(this, DayResource, arguments)
+    }
+    _createClass(DayResource, [
+      {
+        key: 'render',
+        value: function render() {
+          /**
+           * This allows us to default min, max, and scrollToTime
+           * using our localizer. This is necessary until such time
+           * as TODO: TimeGrid is converted to a functional component.
+           */
+          var _this$props = this.props,
+            date = _this$props.date,
+            localizer = _this$props.localizer,
+            _this$props$min = _this$props.min,
+            min =
+              _this$props$min === void 0
+                ? localizer.startOf(new Date(), 'DayResource')
+                : _this$props$min,
+            _this$props$max = _this$props.max,
+            max =
+              _this$props$max === void 0
+                ? localizer.endOf(new Date(), 'DayResource')
+                : _this$props$max,
+            _this$props$scrollToT = _this$props.scrollToTime,
+            scrollToTime =
+              _this$props$scrollToT === void 0
+                ? localizer.startOf(new Date(), 'DayResource')
+                : _this$props$scrollToT,
+            _this$props$enableAut = _this$props.enableAutoScroll,
+            enableAutoScroll =
+              _this$props$enableAut === void 0 ? true : _this$props$enableAut,
+            props = _objectWithoutProperties(_this$props, _excluded$2)
+          var range = DayResource.range(date, {
+            localizer: localizer,
+          })
+          return /*#__PURE__*/ React.createElement(
+            React.Fragment,
+            null,
+            /*#__PURE__*/ React.createElement(
+              TimeGrid,
+              Object.assign({}, props, {
+                range: range,
+                eventOffset: 10,
+                localizer: localizer,
+                min: min,
+                max: max,
+                scrollToTime: scrollToTime,
+                enableAutoScroll: enableAutoScroll,
+              })
+            ),
+            /*#__PURE__*/ React.createElement(
+              TimeGrid,
+              Object.assign({}, props, {
+                range: range,
+                eventOffset: 10,
+                localizer: localizer,
+                min: min,
+                max: max,
+                scrollToTime: scrollToTime,
+                enableAutoScroll: enableAutoScroll,
+              })
+            ),
+            /*#__PURE__*/ React.createElement(
+              TimeGrid,
+              Object.assign({}, props, {
+                range: range,
+                eventOffset: 10,
+                localizer: localizer,
+                min: min,
+                max: max,
+                scrollToTime: scrollToTime,
+                enableAutoScroll: enableAutoScroll,
+              })
+            )
+          )
+        },
+      },
+    ])
+    return DayResource
+  })(React.Component)
+  DayResource.range = function (date, _ref) {
+    var localizer = _ref.localizer
+    return [localizer.startOf(date, 'DayResource')]
+  }
+  DayResource.navigate = function (date, action, _ref2) {
+    var localizer = _ref2.localizer
+    switch (action) {
+      case navigate.PREVIOUS:
+        return localizer.add(date, -1, 'DayResource')
+      case navigate.NEXT:
+        return localizer.add(date, 1, 'DayResource')
+      default:
+        return date
+    }
+  }
+  DayResource.title = function (date, _ref3) {
+    var localizer = _ref3.localizer
+    return localizer.format(date, 'DayResourceHeaderFormat')
+  }
+
   var VIEWS = _defineProperty$1(
     _defineProperty$1(
       _defineProperty$1(
         _defineProperty$1(
-          _defineProperty$1({}, views.MONTH, MonthView),
-          views.WEEK,
-          Week
+          _defineProperty$1(
+            _defineProperty$1({}, views.MONTH, MonthView),
+            views.WEEK,
+            Week
+          ),
+          views.WORK_WEEK,
+          WorkWeek
         ),
-        views.WORK_WEEK,
-        WorkWeek
+        views.DAY,
+        Day
       ),
-      views.DAY,
-      Day
+      views.AGENDA,
+      Agenda
     ),
-    views.AGENDA,
-    Agenda
+    views.RESOURCE,
+    DayResource
   )
 
   var _excluded$1 = ['action', 'date', 'today']
